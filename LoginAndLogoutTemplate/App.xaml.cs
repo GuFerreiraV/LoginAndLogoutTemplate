@@ -6,7 +6,27 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+
+            string? usuario_logado = null;
+
+            Task.Run(async () =>
+            {
+                // obtém usuari logado do SecureStorage
+                usuario_logado = await SecureStorage.Default.GetAsync("usuario_logado");
+
+                if(usuario_logado != null)
+                {
+                    // Se o usuário estiver logado, redireciona para a página protegida
+                    MainPage = new Protegida();
+                }
+                else
+                {
+                    // Caso contrário, redireciona para a página de login
+                    MainPage = new Login();
+                }
+            });
+
+            MainPage = new Login();
 
         }
 
