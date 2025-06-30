@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LoginAndLogoutTemplate.Login">
-    <VerticalStackLayout>
+    
+    <VerticalStackLayout 
+        VerticalOptions="Center"
+        Spacing="10"
+        Padding="10"
+        >
+        
+        
         <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
+            Text="Tela de Login"
             HorizontalOptions="Center" />
+
+        <Label Text="User: "/>
+        <Entry x:Name="txt_user"/>
+
+        <Label Text="Password: "/>
+        <Entry x:Name="txt_password" IsPassword="True"/>
+
+        <Button Text="Entrar"
+                Clicked="Button_Clicked"
+                HorizontalOptions="Center"/>
     </VerticalStackLayout>
-</ContentView>
+
+</ContentPage>
